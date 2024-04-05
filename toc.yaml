@@ -1,0 +1,20 @@
+#  Rename this file to `toc.yaml`
+#  Make sure you include all nav file coding requirements
+#  Anything with a fully qualified URL with `http` or `https` will get an external link icon added to the nav entry
+---
+toc:
+  properties:
+    subcollection: pattern-cyber-resiliency-vpc
+    audience: solution
+    category: solution_docs
+    content-type: reference-architecture
+    navigation: hidden
+    href: /docs?tab=solutions
+    path: pattern-cyber-resiliency-vpc
+    label: Cyber resiliency pattern on VPC
+
+  entries:
+  - navgroup:
+      id: architecture
+      topics:
+      - reference-architecture-cyber-resiliency-vpc.md
