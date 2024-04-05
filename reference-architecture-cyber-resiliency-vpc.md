@@ -127,16 +127,16 @@ The following table outlines the products or services that are used in the archi
 | Networking | [VPC Virtual Private Network (VPN)](/docs/iaas-vpn?topic=iaas-vpn-getting-started) | Remote access to manage resources in a private network |
 |  | [Transit Gateway](/docs/transit-gateway?topic=transit-gateway-about) |  Connects across VPCs and source and recovery environments |
 |  | [Virtual Private Gateway & Virtual Private Endpoint (VPE)](/docs/vpc?topic=vpc-about-vpe) | For private network access to Cloud Services, for example, Key Protect, Cloud Object Storage, and so on. |
-|  | [Public Gateway](docs/vpc?topic=vpc-about-public-gateways) | For resource access to the internet |
+|  | [Public Gateway](/docs/vpc?topic=vpc-about-public-gateways) | For resource access to the internet |
 | Security | [IAM](/docs/account?topic=account-cloudaccess) | IBM Cloud Identity & Access Management |
 |  | [BYO Bastion Host on VPC VSI](/docs/framework-financial-services?topic=framework-financial-services-vpc-architecture-connectivity-bastion-tutorial-teleport) | Remote access with Privileged Access Management |
-|  | [VPCs, Subnets, Security Groups and ACLS](docs/vpc?topic=vpc-about-subnets-vpc&interface=ui) |  Network isolation and Virtual Air-Gap |
+|  | [VPCs, Subnets, Security Groups and ACLS](/docs/vpc?topic=vpc-about-subnets-vpc&interface=ui) |  Network isolation and Virtual Air-Gap |
 |  | [Key protect or HPCS](/docs/overview?topic=overview-key-encryption) | Hardware security module (HSM) and Key Management Service |
 |  | [Secrets Manager](/docs/secrets-manager?topic=secrets-manager-getting-started) | Certificate and Secrets Management |
 |  | [Context Based Restrictions](/docs/vpc?topic=vpc-cbr&interface=ui) |  Enforce access restrictions for service instances based on a rule's criteria |
 |  Delivery pipeline | [Toolchain](/docs/devsecops?topic=devsecops-devsecops_intro) | Pipeline for build and deploy |
 |  Resiliency | Cloud Object Storage | Data archived in Cloud Object Storage cross-region buckets |
-| Service Management | [IBM Cloud Monitoring](/docs/monitoring?topic=monitoring-about-monitoring) | Apps and operational monitoring |
+| Service Management | [IBM Cloud Monitoring](/docs/monitoring?topic=monitoring-about-monitor) | Apps and operational monitoring |
 |  | [IBM Log Analysis](/docs/log-analysis?topic=log-analysis-getting-started) | Apps and operational logs |
 |  | [Activity Tracker Event Routing](/docs/atracker?topic=atracker-about) | Audit logs |
 |  | [Schematics](/docs/schematics?topic=schematics-learn-about-schematics) | Automated deployment that uses Deployable Architecture and Ansible actions |
