@@ -17,7 +17,8 @@ version: 1.0
 # Value is the URL to land the user in the IBM Cloud catalog details page for the deployable architecture.
 # See https://test.cloud.ibm.com/docs/get-coding?topic=get-coding-deploy-button
 # deployment-url: url
-
+use-case: BackupAndRestore, BusinessContinuity, CyberResilience, Cyberattack, Cybersecurity, IncidentResponse, Ransomware
+compliance: IBMCloudFFS
 docs: /docs/pattern-cyber-resiliency-vpc
 
 content-type: reference-architecture
@@ -40,6 +41,8 @@ https://test.cloud.ibm.com/docs/solution-as-code?topic=solution-as-code-naming-g
 {: #cyber-resiliency}
 {: toc-content-type="reference-architecture"}
 {: toc-version="1.0"}
+{: toc-use-case="BackupAndRestore,BusinessContinuity,CyberResilience,Cyberattack,Cybersecurity,IncidentResponse,Ransomware"}
+{: toc-compliance="IBMCloudFFS"}
 
 <!--
 The IDs, such as {: #title-id} are required for publishing this reference architecture in IBM Cloud Docs. Set unique IDs for each heading. Also include
@@ -97,7 +100,7 @@ The new recovery environment now becomes the source and Data Mover component is 
 
 ![Enter image alt text here.](images/cyber-resiliency-heat-map.svg "Cyber Resiliency design requirements"){: caption="Figure 2. Cyber resiliency design requirements" caption-side="bottom"}
 
-The Architecture Framework provides a consistent approach to design cloud solutions by addressing requirements across a set of "aspects" and "domains", which are technology-agnostic architectural areas that need to be considered for any enterprise solution. See [Introduction](/docs/architecture-framework) to the Architecture Framework for more details.
+The {{site.data.keyword.arch_framework}} provides a consistent approach to design cloud solutions by addressing requirements across a set of "aspects" and "domains", which are technology-agnostic architectural areas that need to be considered for any enterprise solution. See [Introduction](/docs/architecture-framework) to the {{site.data.keyword.arch_framework}} for more details.
 
 ## Requirements
 {: #requirements}
