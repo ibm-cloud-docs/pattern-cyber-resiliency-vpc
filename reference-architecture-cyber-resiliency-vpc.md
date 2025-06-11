@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024
-lastupdated: "2024-03-18"
+  years: 2025
+lastupdated: "2025-06-11"
 keywords: cyber resiliency, ransomware,  business continuity, backup and restore
 subcollection: pattern-cyber-resiliency-vpc
 
