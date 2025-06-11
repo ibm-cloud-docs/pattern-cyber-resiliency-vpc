@@ -3,7 +3,7 @@
 copyright:
   years: 2024
 lastupdated: "2024-03-18"
-
+keywords: cyber resiliency, ransomware,  business continuity, backup and restore
 subcollection: pattern-cyber-resiliency-vpc
 
 authors:
@@ -25,17 +25,10 @@ content-type: reference-architecture
 
 ---
 
-<!--
-The following line inserts all the attribute definitions. Don't delete.
--->
+
 {{site.data.keyword.attribute-definition-list}}
 
-<!--
-Don't include "reference architecture" in the following title.
-Specify a title based on a use case. If the architecture has a module
-or tile in the IBM Cloud catalog, match the title to the catalog. See
-https://test.cloud.ibm.com/docs/solution-as-code?topic=solution-as-code-naming-guidance.
--->
+
 
 # Cyber resiliency pattern on VPC
 {: #cyber-resiliency}
@@ -44,12 +37,9 @@ https://test.cloud.ibm.com/docs/solution-as-code?topic=solution-as-code-naming-g
 {: toc-use-case="BackupAndRestore,BusinessContinuity,CyberResilience,Cyberattack,Cybersecurity,IncidentResponse,Ransomware"}
 {: toc-compliance="IBMCloudFFS"}
 
-<!--
-The IDs, such as {: #title-id} are required for publishing this reference architecture in IBM Cloud Docs. Set unique IDs for each heading. Also include
-the toc attributes on the H1, repeating the values from the YAML header.
- -->
 
-<!-- :information_source: **Tip:** For more information about this template, see [Creating reference architectures](https://test.cloud.ibm.com/docs/writing?topic=writing-reference-architectures). -->
+
+
 
 The cyber resiliency reference architecture provides an overview and details for designing a secure cyber recovery solution on Virtual Private Cloud (VPC). Ransomware attacks attempt to encrypt, exfiltrate, or otherwise render primary and backup copies of data and configuration inoperable. The key objective of cyber recovery is on protecting, by backing up the workloads to a secure data bunker and validating available recovery points in an isolated cleanroom environment. Finally, in the event of a ransomware attack, recovering valid recovery points to a new and clean recovery environment. Unlike backup and DR solutions where the primary objective might be low RPO, the focus here is on clean recovery and returning business to working order swiftly and effectively. 
 
@@ -58,7 +48,8 @@ The reference architecture is built on the VSI on VPC secure landing zone archit
 ## Architecture diagram
 {: #architecture-diagram }
 
-![High level architecture.](images/cyber-resiliency-hld.svg "Cyber Resiliency High level architecture"){: caption="Figure 1. Cyber Resiliency high level architecture" caption-side="bottom"}
+
+![High level architecture.](images/cyber-resiliency-hld.svg "Cyber Resiliency High level architecture"){: caption="Cyber Resiliency high level architecture" caption-side="bottom"}
 
 The high-level architecture diagram gives an overview of the different environments and components that constitute the solution. It provides a generic overview of the requirements that drive the architectural decisions. 
 
@@ -69,7 +60,7 @@ The high-level architecture diagram gives an overview of the different environme
 - A recovery environment running on a separate VPC hosts the minimal set of workloads (and data) for business continuity in the event of a cyberattack. When needed, this environment is built as a clean infrastructure into which a valid and verified recovery point is restored and endpoints exposed in-lieu of source environment.
 
 The following detailed reference architecture expands the high-level diagram for a single zone deployment. For a multi-zone deployment, use principles laid out in [multi-zone resiliency patterns](/docs/pattern-vpc-vsi-multizone-resiliency?topic=pattern-vpc-vsi-multizone-resiliency-resiliency-design)
-![Detailed reference architecture.](images/cyber-resiliency-reference-architecture.svg "Cyber Resiliency reference architecture on VPC"){: caption="Figure 2. Cyber Resiliency reference architecture" caption-side="bottom"}
+![Detailed reference architecture.](images/cyber-resiliency-reference-architecture.svg "Cyber Resiliency reference architecture on VPC"){: caption="Cyber Resiliency reference architecture" caption-side="bottom"}
 
 - The production VPC (which maps to the source environment discussed earlier) shows a nonexhaustive list of workloads that need to be protected. It might be in a separate IBM Cloud account within the enterprise account structure.
 - The choice of the Data mover component, which does the backup and restore is left open. The architecture allows for different products with different deployment models, workload support, and functional capabilities.
@@ -93,12 +84,12 @@ The detailed architecture diagram shows the various steps that are followed to b
 7. When a cyberattack is detected on the source environment, automation tools are used to provision a clean recovery environment. The recovery environment might be identical to the source environment or be a subset necessary to bring up the minimal set of workloads necessary.
 8. A clean recovery point group is selected and restored to bring up the workloads and expose them in place of the infected source environment.
 
-The new recovery environment now becomes the source and Data Mover component is re-configured to start protecting these workloads. Forensic analysis and cleaning of the original source environment when completed might trigger a restore back to it or the recovery environment itself might be promoted as a new production environment.
+The new recovery environment now becomes the source and data mover component is re-configured to start protecting these workloads. Forensic analysis and cleaning of the original source environment when completed might trigger a restore back to it or the recovery environment itself might be promoted as a new production environment.
 
 ## Design concepts
 {: #design-concepts}
 
-![Enter image alt text here.](images/cyber-resiliency-heat-map.svg "Cyber Resiliency design requirements"){: caption="Figure 2. Cyber resiliency design requirements" caption-side="bottom"}
+![Enter image alt text here.](images/cyber-resiliency-heat-map.svg "Cyber Resiliency design requirements"){: caption="Cyber resiliency design requirements" caption-side="bottom"}
 
 The {{site.data.keyword.arch_framework}} provides a consistent approach to design cloud solutions by addressing requirements across a set of "aspects" and "domains", which are technology-agnostic architectural areas that need to be considered for any enterprise solution. See [Introduction](/docs/architecture-framework) to the {{site.data.keyword.arch_framework}} for more details.
 
@@ -115,7 +106,7 @@ The following table outlines the requirements that are addressed in this archite
 | Security           | <ul><li>Ensure that all operator actions are executed securely through a bastion host.</li><li>Protect the boundaries of the application against denial-of-service and application-layer attacks.</li><li>Encrypt all application data in transit and at rest to protect it from unauthorized disclosure.</li><li>Encrypt all backup data to protect it from unauthorized disclosure.</li><li>Encrypt all security data (operational and audit logs) to protect from unauthorized disclosure.</li><li>Encrypt all data by using customer-managed keys to meet regulatory compliance requirements for additional security and customer control.</li><li> Protect secrets through their entire lifecycle and secure them using access control measures.</li></ul> |
 | Resiliency         | <ul><li>Support application availability targets and business continuity policies.</li><li>Ensure availability of the application in the event of planned and unplanned outages.</li><li>Provide highly available compute, storage, network, and other cloud services to handle application load and performance requirements.</li><li>Backup application data to enable recovery in the event of unplanned outages.</li><li>Provide highly available storage for security data (logs) and backup data.</li><li>Automate recovery tasks to minimize downtime</li></ul> |
 | Service Management | <ul><li>Monitor system and application health metrics and logs to detect issues that might impact the availability of the application.</li><li>Generate alerts/notifications about issues that might impact the availability of applications to trigger appropriate responses to minimize downtime.</li><li>Monitor audit logs to track changes and detect potential security problems.</li><li> Provide a mechanism to identify and send notifications about issues that are found in audit logs.</li><li>Day-0 automation for consistent and secure infrastructure provisioning and Day-2 operations automation for ease of management</li></ul> |
-{: caption="Table 1. Requirements" caption-side="bottom"}
+{: caption="Requirements" caption-side="bottom"}
 
 ## Components
 {: #components}
@@ -140,7 +131,7 @@ The following table outlines the products or services that are used in the archi
 |  Delivery pipeline | [Toolchain](/docs/devsecops?topic=devsecops-devsecops_intro) | Pipeline for build and deploy |
 |  Resiliency | Cloud Object Storage | Data archived in Cloud Object Storage cross-region buckets |
 | Service Management | [IBM Cloud Monitoring](/docs/monitoring?topic=monitoring-about-monitor) | Apps and operational monitoring |
-|  | [IBM Log Analysis](/docs/log-analysis?topic=log-analysis-getting-started) | Apps and operational logs |
+|  | [IBM Cloud Logs](/docs/cloud-logs?topic=cloud-logs-getting-started) | Apps and operational logs |
 |  | [Activity Tracker Event Routing](/docs/atracker?topic=atracker-about) | Audit logs |
 |  | [Schematics](/docs/schematics?topic=schematics-learn-about-schematics) | Automated deployment that uses Deployable Architecture and Ansible actions |
-{: caption="Table 2. Components" caption-side="bottom"}
+{: caption="Components" caption-side="bottom"}

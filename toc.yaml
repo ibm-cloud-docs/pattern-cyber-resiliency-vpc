@@ -12,7 +12,6 @@ toc:
     href: /docs?tab=solutions
     path: pattern-cyber-resiliency-vpc
     label: Cyber resiliency pattern on VPC
-
   entries:
   - navgroup:
       id: architecture
